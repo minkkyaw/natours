@@ -12,42 +12,6 @@ exports.aliasTopTours = async (req, res, next) => {
 };
 
 exports.getAllTours = catchAsync(async (req, res, next) => {
-  // const queryObj = { ...req.query };
-  // const excludedFields = ['page', 'sort', 'limit', 'fields'];
-  // excludedFields.forEach(el => delete queryObj[el]);
-
-  // let queryStr = JSON.stringify(queryObj);
-  // queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
-
-  // let query = Tour.find(JSON.parse(queryStr));
-
-  // if (req.query.sort) {
-  //   const sortBy = req.query.sort.split(',').join(' ');
-  //   query = query.sort(sortBy);
-  // } else {
-  //   query = query.sort('-createAt');
-  // }
-
-  // Field limiting
-  // if (req.query.fields) {
-  //   const fields = req.query.fields.split(',').join(' ');
-  //   query = query.select(fields);
-  // } else {
-  //   query = query.select('-__v');
-  // }
-
-  // pagination
-  // page=2&limit=10
-  // const page = req.query.page * 1 || 1;
-  // const limit = req.query.limit * 1 || 100;
-  // const skip = (page - 1) * limit;
-  // query = query.skip(skip).limit(limit);
-
-  // if (req.query.page) {
-  //   const numTours = await Tour.countDocuments();
-  //   if (skip >= numTours) throw new Error('This page does not exit');
-  // }
-
   // EXECUTE QUERY
   const features = new APIFeatures(Tour.find(), req.query)
     .filter()
